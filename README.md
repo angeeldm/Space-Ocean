@@ -1,3 +1,16 @@
+Space Ocean
+
+Al iniciar la app, muestra un simple formulario de inicio de sesión. Los datos asignados no son guardados.
+
+Luego de iniciar sesion muestra como imagen principal la foto del día y mas abajo una lista de imagenes traidas de la API, mostradas como las mejores de cada día desde la fecha inicial de la base de datos de la NASA. Si se refresca la pagina principal, se muestran nuevas imagenes en la lista
+
+Tenemos un input como buscador de imagenes, donde seleccionamos una fecha deseada y se muestra la imagen de la fecha seleccionada. Destacando que este input tambien pasa por un validador de fecha para evitar el input vacio o fechas posteriores al dia actual.
+
+
+Esta app consume la API de la NASA, APOD (Astronomy Picture Of the Day) https://apod.nasa.gov/apod/astropix.html
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
