@@ -9,7 +9,7 @@ Tenemos un input como buscador de imagenes, donde seleccionamos una fecha desead
 
 Esta app consume la API de la NASA, APOD (Astronomy Picture Of the Day) https://apod.nasa.gov/apod/astropix.html
 
-
+Enjoy it!
 
 # Getting Started with Create React App
 
