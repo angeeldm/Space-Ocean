@@ -6,10 +6,22 @@ Luego de iniciar sesion muestra como imagen principal la foto del día y mas aba
 
 Tenemos un input como buscador de imagenes, donde seleccionamos una fecha deseada y se muestra la imagen de la fecha seleccionada. Destacando que este input tambien pasa por un validador de fecha para evitar el input vacio o fechas posteriores al dia actual.
 
-
 Esta app consume la API de la NASA, APOD (Astronomy Picture Of the Day) https://apod.nasa.gov/apod/astropix.html
 
 Enjoy it!
+
+Space Ocean
+
+When the app is open, it shows an simple form to log in. All data is not saved in any database.
+
+Then, you can see the picture of the day and scrolldown to see the list picture of random picts from the API, if the app is refresh all the elements of the list change to show other pictures.
+
+The 'search' input allow us to find the picture of the day that we want to see.
+
+Hope you like and enjoy it!
+
+
+
 
 # Getting Started with Create React App
 

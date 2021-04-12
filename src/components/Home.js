@@ -172,7 +172,7 @@ const Home = () => {
                 </PictContainer>
 
                 <Footer>
-                    <b>Thanks to <a href="https://api.nasa.gov/" target="_blank">Nasa Open APIs</a> </b>
+                    <b>Thanks to <a href="https://api.nasa.gov/" target="_blank" rel="noopener noreferrer">Nasa Open APIs</a> </b>
                 </Footer> 
 
             </BoxContainer>
