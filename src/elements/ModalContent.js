@@ -10,7 +10,7 @@ const ModalContent = styled.div`
 
 const ModalTitle = styled.h3`
     font-family: Lato;
-    font-size: 22px;
+    font-size: 1.2em;
     text-align: center;
     text-transform: uppercase;
     margin: 10px 0;
@@ -18,14 +18,14 @@ const ModalTitle = styled.h3`
 
 const ModalInfo = styled.p`
     font-family: Lato;
-    font-size: 18px;
+    font-size: 1em;
     text-align: center;
     font-weight: ${(props) => props.date ? 'bold' : 'regular'};
     margin-bottom: 10px;
 `;
 
 const ModalButton = styled.button`
-    font-size: 16px;
+    font-size: 1em;
     color: #000;
     border: none;
     border-radius: 5px;

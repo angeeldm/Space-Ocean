@@ -2,13 +2,17 @@ import styled from "styled-components";
 
 const PictContainer = styled.div`
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     grid-gap: 20px;
     margin: 10px 0;
     width: 90%;
 
-    @media(max-width: 768px){
+    @media(min-width: 540px){
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media(min-width: 768px){
+        grid-template-columns: repeat(3, 1fr)
     }
 `;
 

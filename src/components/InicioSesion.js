@@ -54,7 +54,7 @@ const InicioSesion = () => {
         <Formulario onSubmit={handleSubmit}>
           <Input name="nombre" type="text" placeholder="User" value={nombre} onChange={handleChange} />
           <Input name="password" type="password" placeholder="Password" value={password} onChange={handleChange} /> 
-          <Boton as="button">Let's Go <FontAwesomeIcon icon={faSpaceShuttle} rotation={270} pull="right" /> </Boton>
+          <Boton as="button">Let's Go <FontAwesomeIcon icon={faSpaceShuttle} rotation={270} /> </Boton>
         </Formulario>
       </Contenedor>
 
@@ -76,7 +76,7 @@ const Formulario = styled.form`
 `;
 
 const Input = styled.input`
-  font-size: 25px;
+  font-size: 1.4em;
   text-transform: uppercase;
 
 `;

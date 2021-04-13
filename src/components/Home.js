@@ -193,7 +193,7 @@ const Title = styled.h1`
     color: #000;
     font-family: Lato;
     font-weight: 400;
-    font-size: 40px;
+    font-size: 2.5em;
     text-align: center;
     margin-top: 30px;
 `;
@@ -210,7 +210,7 @@ const BoxContainer = styled.div`
 
 const DateInfo = styled.p`
     font-family: Lato;
-    font-size: 25px;
+    font-size: 1.4em;
     color: #000;
     text-align: center;
 `;
@@ -227,7 +227,7 @@ const Picture = styled.div`
 
 const Input = styled.input`
     font-size: 16px;
-    padding: 10px 60px;
+    padding: 10px 25px;
     border: none;
     border-bottom: 2px solid #C1C1C1;
     background-color: transparent;
@@ -235,6 +235,10 @@ const Input = styled.input`
 
     &:hover{
         border-bottom: 2px solid #000;
+    }
+
+    @media(min-width: 610px){
+        padding: 10px 60px;
     }
 `;
 

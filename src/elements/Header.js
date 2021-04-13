@@ -32,8 +32,9 @@ const Titulo = styled.h1`
     font-family: Lato;
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 70px;
+    font-size: 3.8em;
     color: #fff;
+    text-align: center;
 `;
 
 export {Contenedor, ContenedorHeader, Header, Titulo};
