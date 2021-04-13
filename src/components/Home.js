@@ -156,7 +156,7 @@ const Home = () => {
                                 <div className="alineado">
                                     <h4>{pict.title}</h4>
                                     {(!isValid(picsDate) ? 'Cargando' : <p>{format(picsDate, "EEEE dd MMMM yyyy")}</p>)}
-                                    <Popup trigger={<ModalButton >See more  </ModalButton>} modal ref={ref}>
+                                    <Popup trigger={<ModalButton >See more  </ModalButton>} modal ref={ref} lockScroll="true">
                                         <ModalContent>
                                             <CloseBtn onClick={closeTooltip}> &times; </CloseBtn>
                                             <img src={pict.url} alt="Loading.." />

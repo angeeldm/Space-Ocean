@@ -18,7 +18,7 @@ const ModalTitle = styled.h3`
 
 const ModalInfo = styled.p`
     font-family: Lato;
-    font-size: 1em;
+    font-size: ${(props) => props.date ? '1em' : '0.8em'};
     text-align: center;
     font-weight: ${(props) => props.date ? 'bold' : 'regular'};
     margin-bottom: 10px;
