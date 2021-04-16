@@ -1,9 +1,9 @@
 import Particles from "react-tsparticles";
 import styled from "styled-components";
 
-const Fondo = () => {
+const Background = () => {
 return (
-    <ContenedorFondo>
+    <BgContainer>
         <Particles
             id="tsparticles"
 
@@ -86,15 +86,15 @@ return (
                 detectRetina: true,
             }}
         />
-    </ContenedorFondo>
+    </BgContainer>
 );
 }
 
-const ContenedorFondo = styled.div`
+const BgContainer = styled.div`
     width: 100%;
     position: fixed;
     bottom: 0;
     z-index: 0;
 `;
 
-export default Fondo;
+export default Background;

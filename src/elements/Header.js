@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Contenedor = styled.div`
+const Container = styled.div`
   width: 100%;
   margin: 0 auto;
   z-index: 1;
@@ -9,7 +9,7 @@ const Contenedor = styled.div`
   bottom: 0;
 `;
 
-const ContenedorHeader = styled.div`
+const HeaderContainer = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -28,7 +28,7 @@ const Header = styled.div`
     }
 `;
 
-const Titulo = styled.h1`
+const MainTitle = styled.h1`
     font-family: Lato;
     font-weight: 700;
     text-transform: uppercase;
@@ -37,4 +37,4 @@ const Titulo = styled.h1`
     text-align: center;
 `;
 
-export {Contenedor, ContenedorHeader, Header, Titulo};
+export {Container, HeaderContainer, Header, MainTitle};

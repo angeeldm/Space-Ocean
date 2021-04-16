@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 import styled from 'styled-components';
-import {ContenedorHeader, Header} from '../elements/Header';
+import {HeaderContainer, Header} from '../elements/Header';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faSearch, faUserAstronaut, faRocket, faTimes} from '@fortawesome/free-solid-svg-icons';
 import {ReactComponent as Telescope} from '../img/telescope1.svg';
@@ -11,46 +11,46 @@ import {ModalContent, ModalTitle, ModalInfo, ModalButton, CloseBtn} from '../ele
 import Footer from '../elements/Footer';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-import Boton from '../elements/Boton';
-import Alerta from '../elements/Alerta';
+import Button from '../elements/Button';
+import Alert from '../elements/Alert';
 
 const Home = () => {
     const [picture, setPicture] = useState([]);                     //VARIABLE QUE OBTIENE LA IMAGEN PRINCIPAL
     const [randomPics, setRandomPics] = useState([]);               //VARIABLE QUE OBTIENE LAS IMAGENES DE LISTA
     const [datePicture, setDatePicture] = useState([]);             //VARIABLE QUE OBTIENE LA IMAGEN BUSCADA DEL INPUT
-    const [alerta, setAlerta] = useState({});
-    const [estadoAlerta, setEstadoAlerta] = useState(false);
-    const [fecha, setFecha] = useState('');
+    const [alert, setAlert] = useState({});
+    const [alertState, setAlertState] = useState(false);
+    const [dateInput, setDateInput] = useState('');                 //VARIABLE QUE OBTIENE EL INPUT DE BUSQUEDA
     const ref = useRef();
-    let searchFecha;                                                //PARA GUARDAR EL VALOR BUSCADO
+    let searchDate;                                                 //PARA GUARDAR EL VALOR BUSCADO
     const date = parseISO(picture.date);                            //CONVERTIR LA VARIABLE EN UN VALOR QUE PUEDA SER LEIDO
 
     const closeTooltip = () => ref.current.close();
 
-    const resetFecha = () => {
-        setFecha('');
+    const resetDate = () => {
+        setDateInput('');
         setDatePicture([]);
         closeTooltip();
     }
     
     const handleChange = (e) => {
-        searchFecha = parseISO(e.target.value);
-        setFecha(e.target.value);
+        searchDate = parseISO(e.target.value);
+        setDateInput(e.target.value);
     }
 
     const handleClick = () => {
-        if(searchFecha > new Date() || fecha === ''){               
-            setEstadoAlerta(true);
-            setAlerta({
-                tipo: 'error',
-                mensaje: 'Fecha Inválida'
+        if(searchDate > new Date() || dateInput === ''){               
+            setAlertState(true);
+            setAlert({
+                type: 'error',
+                message: 'Fecha Inválida'
             });
             return;
         } else{
             try {
-                if(fecha !== ''){
+                if(dateInput !== ''){
                     const dataImg = async () => {
-                        const url = `https://api.nasa.gov/planetary/apod?api_key=3I6Mg1Nsvh1yM9VOEOXqd8QCoH9T7wxZlcwg9FcU&date=${fecha}`;
+                        const url = `https://api.nasa.gov/planetary/apod?api_key=3I6Mg1Nsvh1yM9VOEOXqd8QCoH9T7wxZlcwg9FcU&date=${dateInput}`;
                         const response = await fetch(url);
                         const result = await response.json();
                         // console.log(result);
@@ -59,10 +59,10 @@ const Home = () => {
                         setDatePicture(imgDataFinal);
 
                         if(imgDataFinal.code === 400) {
-                            setEstadoAlerta(true);
-                            setAlerta({
-                                tipo: 'error',
-                                mensaje: 'No se puede mostrar esta imagen'
+                            setAlertState(true);
+                            setAlert({
+                                type: 'error',
+                                message: 'No se puede mostrar esta imagen'
                             });
                             // console.log(imgDataFinal.code);
                             return;
@@ -101,33 +101,33 @@ const Home = () => {
     return (
         <MainContainer>
             <BoxContainer>
-                <ContenedorHeader>
+                <HeaderContainer>
                     <Header>
                         <Title>Space Ocean <FontAwesomeIcon icon={faUserAstronaut} /> </Title>
                         <div>
-                            <Popup trigger={<Boton activo>Search <FontAwesomeIcon icon={faSearch} pull="right"/></Boton> } modal ref={ref} nested onClose={resetFecha}>
+                            <Popup trigger={<Button activo>Search <FontAwesomeIcon icon={faSearch} pull="right"/></Button> } modal ref={ref} nested onClose={resetDate}>
                                 <ModalContent>
                                     <CloseBtn onClick={closeTooltip}> &times; </CloseBtn>
-                                    <Input type="date" onChange={handleChange} value={fecha}/>
+                                    <Input type="date" onChange={handleChange} value={dateInput}/>
                                     <div>
-                                        <ModalButton onClick={resetFecha}>Close <FontAwesomeIcon icon={faTimes} /></ModalButton>
+                                        <ModalButton onClick={resetDate}>Close <FontAwesomeIcon icon={faTimes} /></ModalButton>
                                         <ModalButton onClick={handleClick}>Search <FontAwesomeIcon icon={faRocket} /></ModalButton>
                                     </div>
                                 </ModalContent>
 
                                 {datePicture.length !== 0 ?
-                                    <Popup trigger={<Boton excep>See <Telescopio /> </Boton>} modal nested ref={ref}>
+                                    <Popup trigger={<Button excep>See <Telescopio /> </Button>} modal nested ref={ref}>
                                         <ModalContent>
-                                            <CloseBtn onClick={resetFecha}> &times; </CloseBtn>
+                                            <CloseBtn onClick={resetDate}> &times; </CloseBtn>
                                             {datePicture.length !== 0 ?
                                                 <>
-                                                    <img src={datePicture.url} alt="imagen" />
+                                                    <img src={datePicture.url} alt="Loading.." />
                                                     <ModalTitle>{datePicture.title}</ModalTitle>
                                                     <ModalInfo>{datePicture.date}</ModalInfo>
                                                     <ModalInfo>{datePicture.explanation}</ModalInfo>
                                                 </>
                                             :
-                                             'Hubo un error al cargar la imagen'
+                                             'There was a problem trying to load the image'
                                             }
                                         </ModalContent>
                                     </Popup> 
@@ -136,10 +136,10 @@ const Home = () => {
                             </Popup>
                         </div>
                     </Header>
-                </ContenedorHeader>
+                </HeaderContainer>
 
                 <Title>Most Valuable Picture</Title>
-                {(!isValid(date) ? 'Cargando' : <DateInfo>{format(date, "EEEE dd MMMM yyyy")}</DateInfo>)}
+                {(!isValid(date) ? 'Loading..' : <DateInfo>{format(date, "EEEE dd MMMM yyyy")}</DateInfo>)}
                 
                 <Picture>
                     <img src={picture.hdurl} alt="Loading.."/>
@@ -153,9 +153,9 @@ const Home = () => {
                         return(
                             <PictCard key={pict.title}>
                                 <img src={pict.url} alt="Loading.." />
-                                <div className="alineado">
+                                <div className="aligning">
                                     <h4>{pict.title}</h4>
-                                    {(!isValid(picsDate) ? 'Cargando' : <p>{format(picsDate, "EEEE dd MMMM yyyy")}</p>)}
+                                    {(!isValid(picsDate) ? 'Loading..' : <p>{format(picsDate, "EEEE dd MMMM yyyy")}</p>)}
                                     <Popup trigger={<ModalButton >See more  </ModalButton>} modal ref={ref} lockScroll="true">
                                         <ModalContent>
                                             <CloseBtn onClick={closeTooltip}> &times; </CloseBtn>
@@ -176,7 +176,7 @@ const Home = () => {
                 </Footer> 
 
             </BoxContainer>
-            <Alerta tipo={alerta.tipo} mensaje={alerta.mensaje} estadoAlerta={estadoAlerta} setEstadoAlerta={setEstadoAlerta} />
+            <Alert type={alert.type} message={alert.message} alertState={alertState} setAlertState={setAlertState} />
         </MainContainer>
     );
 }

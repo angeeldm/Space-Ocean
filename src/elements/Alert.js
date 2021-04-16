@@ -1,24 +1,24 @@
 import React, {useEffect} from 'react';
 import styled, {keyframes} from 'styled-components';
 
-const Alerta = ({tipo, mensaje, estadoAlerta, setEstadoAlerta}) => {
+const Alert = ({type, message, alertState, setAlertState}) => {
     useEffect(() => {
         let time;
-        if(estadoAlerta === true){
+        if(alertState === true){
             setTimeout(() => {
-                setEstadoAlerta(false);
+                setAlertState(false);
             }, 4000);
         }
         return(() => clearTimeout(time));
 
-    }, [estadoAlerta, setEstadoAlerta])
+    }, [alertState, setAlertState])
 
     return (
         <>
-            {estadoAlerta &&
-                <ContenedorAlerta tipo={tipo}>
-                    <p>{mensaje}</p>
-                </ContenedorAlerta>
+            {alertState &&
+                <AlertContainer type={type}>
+                    <p>{message}</p>
+                </AlertContainer>
             }
         </>
     );
@@ -46,7 +46,7 @@ const slideDown = keyframes`
     }
 `;
  
-const ContenedorAlerta = styled.div`
+const AlertContainer = styled.div`
     z-index: 1000;
     width: 100%;
     left: 0;
@@ -59,9 +59,9 @@ const ContenedorAlerta = styled.div`
  
     p {
         background: ${(props) => {
-            if(props.tipo === 'error'){
+            if(props.type === 'error'){
                 return '#D72424';
-            } else if (props.tipo === 'exito') {
+            } else if (props.type === 'exito') {
                 return '#2FE982';
             } else {
                 return '#000';
@@ -76,4 +76,4 @@ const ContenedorAlerta = styled.div`
     }
 `;
  
-export default Alerta;
+export default Alert;

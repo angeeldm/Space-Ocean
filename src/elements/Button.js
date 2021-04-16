@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Boton = styled.button`
+const Button = styled.button`
     color: #111;
     padding: ${(props) => props.activo ? '10px 50px' : '5px 30px'};
     margin-top: 10px;
@@ -25,4 +25,4 @@ const Boton = styled.button`
     }
 `;
 
-export default Boton;
+export default Button;

@@ -4,8 +4,8 @@ import {Helmet} from 'react-helmet';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import './index.css';
 import App from './App';
-import Fondo from './elements/Fondo';
-import InicioSesion from './components/InicioSesion';
+import Background from './elements/Background';
+import Login from './components/Login';
 import WebFont from 'webfontloader';
 
 WebFont.load({
@@ -23,11 +23,11 @@ const Index = () => {
 
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={InicioSesion}/>
+          <Route exact path="/" component={Login}/>
           <Route path="/home" component={App} />
         </Switch>
       </BrowserRouter>
-      <Fondo />
+      <Background />
     </>
   );
 }

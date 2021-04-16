@@ -27,17 +27,13 @@ a{
   font-weight: 600;
 }
 
-.alineado{
+.aligning{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 0 10px;
 }
-
-/* .popup-content{
-  height: 90%;
-} */
 
 @media (max-width: 560px) {
   .popup-content{
